@@ -9,8 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
-
-import androidx.appcompat.app.AlertDialog;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,27 +60,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showResult() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         String result = "";
+        Animation animation = getAnimationSetting();
         int count = player - computer;
+
         if (count == 0) {
             result = "Draw";
-            setFlickerAnimation(imComputer);
-            setFlickerAnimation(imPlayer);
+            imPlayer.startAnimation(animation);
+            imComputer.startAnimation(animation);
         } else if (count == 1 || count == -2) {
             result = "You Win";
-            setFlickerAnimation(imPlayer);
+            imPlayer.startAnimation(animation);
         } else if (count == 2 || count == -1) {
             result = "You Lose";
-            setFlickerAnimation(imComputer);
+            imComputer.startAnimation(animation);
         }
 
-        builder.setMessage(result);
-        builder.setPositiveButton("OK", null);
-        builder.create().show();
+        Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
     }
 
-    private final CountDownTimer isTimer = new CountDownTimer(1500, 300) {
+    private final CountDownTimer isTimer = new CountDownTimer(1500, 200) {
         @Override
         public void onTick(long millisUntilFinished) {
             computer = (int) (Math.random() * 100.0) % 3;
@@ -96,14 +94,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private void setFlickerAnimation(ImageView iv_chat_head) {
-        final Animation animation = new AlphaAnimation(1, 0);
+    private Animation getAnimationSetting() {
+        Animation animation = new AlphaAnimation(1, 0);
 
-        animation.setDuration(750);//閃爍時間間隔
+        animation.setDuration(300);
         animation.setInterpolator(new AccelerateDecelerateInterpolator());
         animation.setRepeatCount(3);
         animation.setRepeatMode(Animation.REVERSE);
 
-        iv_chat_head.setAnimation(animation);
+        return animation;
     }
 }
