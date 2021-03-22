@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Rock_paper_scissors</string>
+    <string name="computer">computer</string>
+    <string name="player">player</string>
+    <string name="scissors">scissors</string>
+    <string name="rock">rock</string>
+    <string name="paper">paper</string>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imComputer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/computer"
+            android:src="@drawable/computer" />
+
+        <ImageSwitcher
+            android:id="@+id/is"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/imPlayer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/player"
+            android:src="@drawable/player" />
+
+        <ImageView
+            android:id="@+id/ivPlayer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/player" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <ImageButton
+            android:id="@+id/ibScissors"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/scissors"
+            android:onClick="ibClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/scissors" />
+
+        <ImageButton
+            android:id="@+id/ibRock"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/rock"
+            android:onClick="ibClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/rock" />
+
+        <ImageButton
+            android:id="@+id/ibPaper"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/paper"
+            android:onClick="ibClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/paper" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
